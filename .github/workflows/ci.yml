@@ -2,19 +2,19 @@ name: CI/CD Pipeline
 
 on:
   push:
-    brancehs:
+    branches:
       - main
   pull_request:
     branches:
       - main
-  jobs:
-    build:
 
-      runs-on: ubuntu-latest
+jobs:
+  build:
+    runs-on: ubuntu-latest
       
-      steps:
+    steps:
       - name: Checkout code
-        uses: actions/checout@v2
+        uses: actions/checkout@v2
 
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -28,4 +28,3 @@ on:
       - name: Run tests
         run: |
           python -m unittest test_app.py
-
